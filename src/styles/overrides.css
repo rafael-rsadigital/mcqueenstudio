@@ -137,10 +137,10 @@
 
 /* Ajustes finais do controle de áudio e respiro da hero. */
 @media (min-width: 681px) {
-  .hero .hero-content { transform: translateY(-42px); }
+  .hero .hero-content { transform: translateY(-56px); }
 }
 @media (max-width: 680px) {
-  .hero .hero-content { transform: translateY(-34px); }
+  .hero .hero-content { transform: translateY(-48px); }
 }
 .soundtrack-toggle {
   width: 44px;
