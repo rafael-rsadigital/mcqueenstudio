@@ -258,3 +258,17 @@ p { color: var(--muted); }
  .floating-whatsapp { width: 56px; height: 56px; right: 15px; bottom: 15px; }
  .floating-whatsapp svg { width: 30px; height: 30px; }
 }
+/* Correção do menu móvel quando o cabeçalho está recolhido */
+@media (max-width: 680px) {
+  .site-header.is-scrolled { backdrop-filter: none; -webkit-backdrop-filter: none; }
+  .site-header { isolation: auto; }
+  .main-menu { position: fixed; top: 0; right: 0; bottom: 0; left: 0; width: 100vw; height: 100vh; height: 100dvh; z-index: 30; overflow-y: auto; overscroll-behavior: contain; }
+  .menu-toggle { position: relative; z-index: 31; }
+}
+/* Conteúdo abaixo da primeira dobra: renderização sob demanda */
+@media (min-width: 681px) {
+  .services-section, .gallery-section, .reviews-section, .location-section, .contact-section { content-visibility: auto; contain-intrinsic-size: auto 780px; }
+}
+@media (max-width: 680px) {
+  .services-section, .gallery-section, .reviews-section, .location-section, .contact-section { content-visibility: auto; contain-intrinsic-size: auto 650px; }
+}
