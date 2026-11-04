@@ -1,0 +1,12 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import WhatsAppButton from '../../components/WhatsAppButton.astro';
+import { services } from '../../data/site.js';
+---
+<BaseLayout title="Serviços de Estética Automotiva em São José dos Campos" description="Conheça os serviços da Mcqueen Studio em São José dos Campos: envelopamento, PPF, polimento, vitrificação, revitalização de faróis, higienização e acessórios." path="/servicos/" breadcrumbs={['Serviços']}>
+  <section class="service-hero"><div class="wrap"><p class="eyebrow">Serviços automotivos</p><h1>Serviços de estética automotiva em São José dos Campos</h1><p class="hero-copy">Conheça as opções de envelopamento, proteção, correção de pintura, detalhamento e personalização disponíveis na Mcqueen Studio. Cada veículo é avaliado conforme o material, o estado da superfície e o resultado pretendido.</p></div></section>
+  <section class="services-section"><div class="wrap"><div class="section-heading wide"><p class="eyebrow">Catálogo de serviços</p><h2>Escolha o serviço que procura</h2><p>Abra cada página para consultar as aplicações e conversar com a equipe sobre a compatibilidade com seu veículo.</p></div><div class="services-grid">{services.map((service) => <ServiceCard service={service} />)}</div></div></section>
+  <section class="contact-section"><div class="wrap contact-grid"><div><p class="eyebrow">Atendimento em SJC</p><h2>Precisa avaliar<br /><em>uma aplicação?</em></h2></div><div><p>Envie o modelo do veículo e explique o que pretende fazer. A equipe pode orientar sobre disponibilidade e avaliação.</p><a class="button button-primary" href="https://wa.me/5512981460442?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20consultar%20um%20servi%C3%A7o." target="_blank" rel="noreferrer">Consultar pelo WhatsApp <span>↗</span></a></div></div></section>
+  <WhatsAppButton service="consultar os serviços" />
+</BaseLayout>
