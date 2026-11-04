@@ -23,11 +23,13 @@ export const services = [
 ];
 
 export const galleryItems = [
-  { category: 'personalizacoes', label: 'Personalizações', title: 'Projeto real — inserir título', image: '/media/projetos/projeto-01.jpg', alt: 'Foto do projeto real 01 da Mcqueen Studio' },
-  { category: 'suvs', label: 'SUVs', title: 'Projeto real — inserir título', image: '/media/projetos/projeto-02.jpg', alt: 'Foto do projeto real 02 da Mcqueen Studio' },
-  { category: 'esportivos', label: 'Esportivos', title: 'Projeto real — inserir título', image: '/media/projetos/projeto-03.jpg', alt: 'Foto do projeto real 03 da Mcqueen Studio' },
-  { category: 'motos', label: 'Motos', title: 'Projeto real — inserir título', image: '/media/motos/moto-01.jpg', alt: 'Foto do projeto real de motocicleta da Mcqueen Studio' },
-  { category: 'classicos', label: 'Antigos / Clássicos', title: 'Projeto real — inserir título', image: '/media/projetos/projeto-04.jpg', alt: 'Foto do projeto real clássico da Mcqueen Studio' },
+  { category: 'envelopamento', label: 'Envelopamento', title: 'Envelopamento de teto', image: '/media/entrada/envelopamento-do-teto.jpeg', alt: 'Projeto de envelopamento de teto automotivo realizado pela Mcqueen Studio' },
+  { category: 'motos', label: 'Motocicletas', title: 'Projeto em duas rodas 01', image: '/media/entrada/moto01.jpeg', alt: 'Motocicleta em projeto de estética automotiva da Mcqueen Studio' },
+  { category: 'motos', label: 'Motocicletas', title: 'Projeto em duas rodas 02', image: '/media/entrada/moto02.jpeg', alt: 'Segundo registro de motocicleta na galeria da Mcqueen Studio' },
+  { category: 'projetos', label: 'Projetos automotivos', title: 'Registro de projeto 01', image: '/media/entrada/9F09F1C8-414F-4A6D-95F5-EAF142B64706.jpeg', alt: 'Registro fotográfico de projeto automotivo da Mcqueen Studio' },
+  { category: 'projetos', label: 'Projetos automotivos', title: 'Registro de projeto 02', image: '/media/entrada/IMG_2147.jpeg', alt: 'Registro fotográfico de projeto automotivo da Mcqueen Studio' },
+  { category: 'projetos', label: 'Projetos automotivos', title: 'Registro de projeto 03', image: '/media/entrada/Sem título.jpg', alt: 'Registro fotográfico de projeto automotivo da Mcqueen Studio' },
+  { category: 'projetos', label: 'Projetos automotivos', title: 'Registro de projeto 04', image: '/media/entrada/Sem título23.jpg', alt: 'Registro fotográfico de projeto automotivo da Mcqueen Studio' },
 ];
 
 export function whatsappUrl(service = 'atendimento') {
