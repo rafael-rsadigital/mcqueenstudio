@@ -313,3 +313,6 @@ body:has(.service-index-hero) .site-header:not(.is-scrolled) {
 @media (max-width: 680px) {
   .gallery-comparison .comparison { height: 260px; }
 }
+
+/* Fotos da galeria: exibir os arquivos reais sem camada de placeholder. */
+.gallery-item .media-slot img { opacity: 1; }
