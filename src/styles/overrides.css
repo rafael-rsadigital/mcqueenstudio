@@ -204,3 +204,33 @@
 @media (prefers-reduced-motion: reduce) {
   .service-hero-photo::before { background-attachment: scroll; }
 }
+
+/* Consistência do cabeçalho: transparente no topo como na home e translúcido ao rolar. */
+.site-header:not(.is-scrolled) {
+  background: transparent;
+  border-bottom-color: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+.site-header.is-scrolled {
+  background: rgba(7, 7, 8, .72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+/* Hero de serviços: composição centralizada, seguindo a hierarquia visual da home. */
+.service-index-hero { padding: 148px 0 92px; }
+.service-index-hero .wrap { max-width: 980px; text-align: center; }
+.service-index-hero .eyebrow { margin-bottom: 18px; }
+.service-index-hero h1 {
+  max-width: 900px;
+  margin: 0 auto 22px;
+  font-size: clamp(2.5rem, 5.2vw, 5.2rem);
+  line-height: 1.02;
+  letter-spacing: -.045em;
+}
+.service-index-hero .hero-copy { max-width: 690px; margin: 0 auto; font-size: 1rem; }
+@media (max-width: 680px) {
+  .service-index-hero { padding: 132px 0 72px; }
+  .service-index-hero h1 { max-width: 100%; font-size: clamp(2.2rem, 9.2vw, 3.5rem); line-height: 1.05; }
+  .service-index-hero .hero-copy { font-size: .92rem; }
+}
