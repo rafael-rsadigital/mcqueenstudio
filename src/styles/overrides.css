@@ -86,12 +86,12 @@
 
 /* Fundos fotográficos congelados: fotos reais carregadas em /media/entrada. */
 .frozen-photo-section { position: relative; isolation: isolate; overflow: hidden; background: #090a0c; }
-.frozen-photo-section::before { content: ''; position: absolute; z-index: -1; inset: 0; background-image: linear-gradient(90deg, rgba(7,7,8,.88), rgba(7,7,8,.58)), var(--frozen-photo); background-size: cover; background-position: center 48%; background-attachment: fixed; }
+.frozen-photo-section::before { content: ''; position: absolute; z-index: 0; inset: 0; background-image: linear-gradient(90deg, rgba(7,7,8,.88), rgba(7,7,8,.58)), var(--frozen-photo); background-size: cover; background-position: center 48%; background-attachment: fixed; }
 .frozen-photo-section .wrap { position: relative; z-index: 1; }
 .frozen-photo-section, .frozen-photo-section h2, .frozen-photo-section p { color: #fff !important; }
 .frozen-photo-section .eyebrow { color: #ff5368 !important; }
 .service-hero-frozen { position: relative; isolation: isolate; overflow: hidden; background: #08090b; }
-.service-hero-frozen::before { content: ''; position: absolute; z-index: -1; inset: 0; background-image: linear-gradient(90deg, rgba(7,7,8,.9), rgba(7,7,8,.58)), var(--service-bg); background-size: cover; background-position: center 52%; background-attachment: fixed; }
+.service-hero-frozen::before { content: ''; position: absolute; z-index: 0; inset: 0; background-image: linear-gradient(90deg, rgba(7,7,8,.9), rgba(7,7,8,.58)), var(--service-bg); background-size: cover; background-position: center 52%; background-attachment: fixed; }
 @media (max-width: 680px) { .frozen-photo-section::before, .service-hero-frozen::before { background-attachment: scroll; background-position: center; } }
 @media (prefers-reduced-motion: reduce) { .frozen-photo-section::before, .service-hero-frozen::before { background-attachment: scroll; } }
 .gallery-comparison .comparison-after { clip-path: inset(0 0 0 var(--split, 50%)); }
