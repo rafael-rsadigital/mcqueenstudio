@@ -8,8 +8,8 @@ const schema = { '@context':'https://schema.org', '@type':'AutomotiveBusiness', 
 ---
 <BaseLayout title="Estética Automotiva em São José dos Campos" description="Mcqueen Studio Automotivo em São José dos Campos: envelopamento, PPF, polimento, vitrificação, faróis, estética e projetos automotivos." schema={schema}>
   <section class="hero"><div class="hero-media"><div class="hero-desktop-media"><MediaSlot src="/media/hero/hero-desktop-01.jpg" alt="Foto horizontal real para o hero da Mcqueen Studio" label="Foto do hero pendente" loading="eager" /></div><video class="hero-mobile-video" src="/media/hero/hero-mobile-01.mp4" muted playsinline autoplay loop preload="auto" aria-label="Vídeo vertical da Mcqueen Studio Automotivo" poster="/media/hero/hero-desktop-01.jpg"></video></div><div class="wrap hero-content"><div class="hero-kicker">Estética & personalização · SJC</div><h1>Estética Automotiva em São José dos Campos</h1><p class="hero-copy">Envelopamento, PPF, polimento, vitrificação e personalização automotiva. A Mcqueen Studio realiza projetos de estética e acabamento para carros e motocicletas em São José dos Campos.</p><div class="hero-actions"><a class="button button-secondary" href="#servicos">Explorar serviços <span>↓</span></a></div></div><div class="scroll-cue">role para descobrir</div></section>
-  <audio id="mcqueen-soundtrack" src="/media/musica/mixkit-carry-on-1091.mp3" preload="none" loop></audio>
-  <button class="soundtrack-toggle" type="button" aria-label="Desligar trilha sonora" aria-pressed="true" data-soundtrack-toggle>
+  <audio id="mcqueen-soundtrack" src="/media/musica/mixkit-carry-on-1091.mp3" preload="auto" loop></audio>
+  <button class="soundtrack-toggle" type="button" aria-label="Ativar trilha sonora" aria-pressed="false" data-soundtrack-toggle>
     <svg class="soundtrack-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
       <path d="M4 10v4h4l5 4V6l-5 4H4Z" />
       <path class="sound-wave" d="M16 9a5 5 0 0 1 0 6M18.5 6.5a8.5 8.5 0 0 1 0 11" />
@@ -106,7 +106,6 @@ const schema = { '@context':'https://schema.org', '@type':'AutomotiveBusiness', 
         button.classList.toggle('is-playing', playing);
         button.setAttribute('aria-pressed', String(playing));
         button.setAttribute('aria-label', playing ? 'Desligar trilha sonora' : 'Ativar trilha sonora');
-        if (label) label.textContent = playing ? 'Som ligado' : 'Som desligado';
       };
 
       audio.volume = 0;
