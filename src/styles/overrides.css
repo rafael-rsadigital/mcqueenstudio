@@ -133,3 +133,35 @@
 @media (prefers-reduced-motion: reduce) {
   .soundtrack-toggle, .soundtrack-toggle.is-playing .soundtrack-icon { transition: none; animation: none; }
 }
+
+
+/* Ajustes finais do controle de áudio e respiro da hero. */
+@media (min-width: 681px) {
+  .hero .hero-content { transform: translateY(-42px); }
+}
+@media (max-width: 680px) {
+  .hero .hero-content { transform: translateY(-34px); }
+}
+.soundtrack-toggle {
+  width: 44px;
+  height: 44px;
+  min-height: 44px;
+  padding: 0;
+  justify-content: center;
+  border-radius: 50%;
+}
+.soundtrack-icon {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  overflow: visible;
+}
+.soundtrack-toggle.is-playing .soundtrack-icon { animation: soundtrack-pulse 1.8s ease-in-out infinite; }
+.sound-wave { opacity: 1; }
+.sound-off-slash { opacity: 0; stroke: #ef233c; stroke-width: 2.5; }
+.soundtrack-toggle:not(.is-playing) .sound-wave { opacity: 0; }
+.soundtrack-toggle:not(.is-playing) .sound-off-slash { opacity: 1; }
