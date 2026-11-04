@@ -9,9 +9,13 @@ const schema = { '@context':'https://schema.org', '@type':'AutomotiveBusiness', 
 <BaseLayout title="Estética Automotiva em São José dos Campos" description="Mcqueen Studio Automotivo em São José dos Campos: envelopamento, PPF, polimento, vitrificação, faróis, estética e projetos automotivos." schema={schema}>
   <section class="hero"><div class="hero-media"><div class="hero-desktop-media"><MediaSlot src="/media/hero/hero-desktop-01.jpg" alt="Foto horizontal real para o hero da Mcqueen Studio" label="Foto do hero pendente" loading="eager" /></div><video class="hero-mobile-video" src="/media/hero/hero-mobile-01.mp4" muted playsinline autoplay loop preload="auto" aria-label="Vídeo vertical da Mcqueen Studio Automotivo" poster="/media/hero/hero-desktop-01.jpg"></video></div><div class="wrap hero-content"><div class="hero-kicker">Estética & personalização · SJC</div><h1>Estética Automotiva em São José dos Campos</h1><p class="hero-copy">Envelopamento, PPF, polimento, vitrificação e personalização automotiva. A Mcqueen Studio realiza projetos de estética e acabamento para carros e motocicletas em São José dos Campos.</p><div class="hero-actions"><a class="button button-secondary" href="#servicos">Explorar serviços <span>↓</span></a></div></div><div class="scroll-cue">role para descobrir</div></section>
   <audio id="mcqueen-soundtrack" src="/media/musica/mixkit-carry-on-1091.mp3" preload="none" loop></audio>
-  <button class="soundtrack-toggle" type="button" aria-label="Ativar trilha sonora" aria-pressed="false" data-soundtrack-toggle>
-    <span class="soundtrack-icon" aria-hidden="true">♫</span>
-    <span class="soundtrack-label">Som desligado</span>
+  <button class="soundtrack-toggle" type="button" aria-label="Desligar trilha sonora" aria-pressed="true" data-soundtrack-toggle>
+    <svg class="soundtrack-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M4 10v4h4l5 4V6l-5 4H4Z" />
+      <path class="sound-wave" d="M16 9a5 5 0 0 1 0 6M18.5 6.5a8.5 8.5 0 0 1 0 11" />
+      <path class="sound-off-slash" d="M4 4 20 20" />
+    </svg>
+    <span class="sr-only">Controle da trilha sonora</span>
   </button>
   <section class="intro-section theme-light"><div class="wrap intro-grid"><div><p class="eyebrow">01 / O estúdio</p><h2>Envelopamento,<br /><em>polimento e cuidado.</em></h2></div><div><p>A Mcqueen Studio trabalha com estética e personalização automotiva em São José dos Campos. Do envelopamento de detalhes à revitalização de faróis, cada serviço começa pela avaliação do veículo e pelo alinhamento do resultado esperado.</p><p>Atuação na cidade desde 2017, com projetos em carros e motocicletas.</p></div></div></section>
   <section class="services-section frozen-photo-section frozen-services" style="--frozen-photo: url('/media/entrada/9F09F1C8-414F-4A6D-95F5-EAF142B64706.jpeg')" id="servicos"><div class="wrap"><div class="section-heading"><p class="eyebrow">02 / Serviços</p><h2>Serviços de estética e personalização automotiva</h2><p>Consulte as aplicações, os cuidados e os detalhes de cada serviço oferecido pela Mcqueen Studio.</p><a class="text-link" href="/servicos/">Ver todos os serviços <span>↗</span></a></div><div class="services-grid">{services.map((service) => <ServiceCard service={service} />)}</div></div></section>
@@ -76,8 +80,7 @@ const schema = { '@context':'https://schema.org', '@type':'AutomotiveBusiness', 
       const audio = document.getElementById('mcqueen-soundtrack');
       const button = document.querySelector('[data-soundtrack-toggle]');
       if (!audio || !button) return;
-      const label = button.querySelector('.soundtrack-label');
-      const targetVolume = 0.10;
+      const targetVolume = 0.075; // 25% abaixo do volume anterior de 10%.
       let fadeTimer = null;
       let isPlaying = false;
 
@@ -107,6 +110,20 @@ const schema = { '@context':'https://schema.org', '@type':'AutomotiveBusiness', 
       };
 
       audio.volume = 0;
+      const startPlayback = async () => {
+        try {
+          await audio.play();
+          setState(true);
+          fadeTo(targetVolume, 2600);
+        } catch (error) {
+          // Navegadores podem bloquear autoplay com áudio; o controle permanece disponível.
+          setState(false);
+        }
+      };
+
+      // Tenta iniciar automaticamente; a política do navegador pode exigir interação.
+      startPlayback();
+
       button.addEventListener('click', async () => {
         if (isPlaying) {
           setState(false);
@@ -120,7 +137,6 @@ const schema = { '@context':'https://schema.org', '@type':'AutomotiveBusiness', 
           fadeTo(targetVolume, 2600);
         } catch (error) {
           setState(false);
-          if (label) label.textContent = 'Toque para ouvir';
         }
       });
       audio.addEventListener('ended', () => setState(false));
