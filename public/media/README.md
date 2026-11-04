@@ -4,7 +4,7 @@ Insira os arquivos JPG e MP4 nos caminhos abaixo. O site já aponta para estes n
 
 ## Hero
 - `public/media/hero/hero-desktop-01.jpg` — foto horizontal para desktop.
-- `public/media/hero/hero-mobile-01.mp4` — vídeo vertical MP4 para mobile (a ativação do `<video>` pode ser feita no Hero quando o arquivo chegar).
+- `public/media/hero/hero-mobile-01.mp4` — vídeo vertical MP4 para mobile; o hero já está preparado para usar este arquivo em telas pequenas.
 
 ## Serviços
 - `public/media/envelopamento/envelopamento-01.jpg`
