@@ -1,0 +1,5 @@
+---
+import { whatsappUrl } from '../data/site.js';
+const { service = 'atendimento' } = Astro.props;
+---
+<a class="floating-whatsapp" href={whatsappUrl(service)} target="_blank" rel="noreferrer" aria-label={`Falar no WhatsApp sobre ${service}`}><span>WhatsApp</span><b>↗</b></a>

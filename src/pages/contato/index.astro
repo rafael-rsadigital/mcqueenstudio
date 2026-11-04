@@ -1,0 +1,10 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import WhatsAppButton from '../../components/WhatsAppButton.astro';
+import { company, whatsappUrl } from '../../data/site.js';
+---
+<BaseLayout title="Contato" description="Entre em contato com a Mcqueen Studio Automotivo pelo WhatsApp ou Instagram em São José dos Campos." path="/contato/" breadcrumbs={['Contato']}>
+  <section class="service-hero"><div class="wrap"><p class="eyebrow">Vamos conversar</p><h1>O próximo projeto<br /><em>começa numa mensagem.</em></h1><p class="hero-copy">Envie o veículo, o serviço que você imagina e, se quiser, algumas referências. A equipe orienta o melhor próximo passo.</p></div></section>
+  <section class="contact-section"><div class="wrap contact-grid"><div><div class="contact-card"><p class="eyebrow">WhatsApp</p><h3><a href={whatsappUrl()} target="_blank" rel="noreferrer">{company.whatsappDisplay} ↗</a></h3><p>Atendimento com mensagem contextual: “Olá! Vim pelo site da Mcqueen Studio...”</p></div><div class="contact-card"><p class="eyebrow">Instagram</p><h3><a href={company.instagram} target="_blank" rel="noreferrer">{company.instagramHandle} ↗</a></h3><p>Referências e projetos publicados pela empresa.</p></div></div><div><div class="map-note"><p class="eyebrow">Localização</p><strong>{company.address}</strong><p>Endereço cadastrado. Confirmar os dados atualizados do Google Business Profile antes da publicação.</p></div><div class="map-note" style="margin-top:12px"><p class="eyebrow">Reputação</p><strong>{company.rating} estrelas · {company.reviews} avaliações</strong><p>Dados consultados e pendentes de reconfirmação antes da publicação. Não são usados como avaliação estruturada enquanto não forem validados.</p></div></div></div></section>
+  <WhatsAppButton service="atendimento" />
+</BaseLayout>

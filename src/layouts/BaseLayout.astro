@@ -1,0 +1,49 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { company } from '../data/site.js';
+import '../styles/global.css';
+const { title, description, path = '/', image = '/og-image.svg', schema = null, breadcrumbs = [] } = Astro.props;
+const canonical = new URL(path, Astro.site || 'https://mcqueenstudio.com.br').toString();
+const pageTitle = title?.includes('Mcqueen') ? title : `${title} | ${company.shortName}`;
+---
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content={company.name} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL(image, Astro.site || 'https://mcqueenstudio.com.br').toString()} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
+  </head>
+  <body>
+    <Header />
+    {breadcrumbs.length > 0 && <nav class="breadcrumbs wrap" aria-label="Breadcrumb"><a href="/">Início</a>{breadcrumbs.map((item: string) => <><span>/</span><span aria-current="page">{item}</span></>)}</nav>}
+    <main><slot /></main>
+    <Footer />
+    <script>
+      const header = document.querySelector('[data-header]');
+      const toggle = document.querySelector('[data-menu-toggle]');
+      const menu = document.querySelector('[data-menu]');
+      const setScrolled = () => header?.classList.toggle('is-scrolled', window.scrollY > 16);
+      setScrolled(); window.addEventListener('scroll', setScrolled, { passive: true });
+      toggle?.addEventListener('click', () => { const open = menu?.classList.toggle('is-open'); toggle.setAttribute('aria-expanded', String(Boolean(open))); document.body.classList.toggle('menu-open', Boolean(open)); });
+      menu?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => { menu.classList.remove('is-open'); toggle?.setAttribute('aria-expanded', 'false'); document.body.classList.remove('menu-open'); }));
+      document.querySelectorAll('[data-year]').forEach((el) => el.textContent = String(new Date().getFullYear()));
+    </script>
+  </body>
+</html>

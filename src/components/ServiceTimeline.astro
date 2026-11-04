@@ -1,0 +1,4 @@
+---
+import { services } from '../data/site.js';
+---
+<section class="timeline-section" aria-labelledby="timeline-title"><div class="wrap"><div class="section-heading wide"><p class="eyebrow">Um olhar por etapas</p><h2 id="timeline-title">Da leitura do veículo<br /><em>ao detalhe final.</em></h2></div><div class="timeline">{services.slice(0, 5).map((service, index) => <a class="timeline-step" href={`/${service.slug}/`}><span class="timeline-number">0{index + 1}</span><span><strong>{service.title}</strong><small>{service.eyebrow}</small></span></a>)}</div></div></section>

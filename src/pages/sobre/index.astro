@@ -1,0 +1,12 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import MediaSlot from '../../components/MediaSlot.astro';
+import WhatsAppButton from '../../components/WhatsAppButton.astro';
+import { company } from '../../data/site.js';
+---
+<BaseLayout title="Sobre a Mcqueen Studio" description="Conheça a Mcqueen Studio Automotivo, estética e personalização de veículos em São José dos Campos." path="/sobre/" breadcrumbs={['Sobre']}>
+  <section class="service-hero"><div class="wrap"><p class="eyebrow">Sobre o estúdio</p><h1>Presença em cada<br /><em>acabamento.</em></h1><p class="hero-copy">A Mcqueen Studio reúne estética, proteção e personalização para projetos automotivos que pedem mais atenção aos detalhes.</p></div></section>
+  <section class="intro-section"><div class="wrap intro-grid"><div><p class="eyebrow">Um trabalho de precisão</p><h2>Menos promessa.<br /><em>Mais leitura.</em></h2></div><div><p>O trabalho começa entendendo o veículo, o material, o uso e a intenção do proprietário. O resultado é consequência de um processo bem orientado — e de uma conversa clara sobre o que é possível fazer.</p><p>A empresa atende em {company.city}, com endereço cadastrado em confirmação antes da publicação definitiva.</p></div></div></section>
+  <section class="gallery-section"><div class="wrap"><MediaSlot src="/media/projetos/sobre-01.jpg" alt="Foto real do estúdio ou projeto da Mcqueen Studio" label="Foto institucional pendente" /><div class="media-guide"><strong>Espaço para uma foto institucional real</strong><p>Nome esperado: <code>/public/media/projetos/sobre-01.jpg</code></p></div></div></section>
+  <WhatsAppButton service="conhecer o estúdio" />
+</BaseLayout>
