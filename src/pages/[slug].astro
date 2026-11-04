@@ -6,10 +6,21 @@ import WhatsAppButton from '../components/WhatsAppButton.astro';
 import { services, company, whatsappUrl } from '../data/site.js';
 export function getStaticPaths(){ return services.map((service) => ({ params:{ slug:service.slug }, props:{ service } })); }
 const { service } = Astro.props;
+const serviceBackgrounds = {
+  'envelopamento-automotivo': '/media/entrada/envelopamento-do-teto.jpeg',
+  'ppf-automotivo': '/media/entrada/9F09F1C8-414F-4A6D-95F5-EAF142B64706.jpeg',
+  'polimento-automotivo': '/media/entrada/IMG_2147.jpeg',
+  'vitrificacao-automotiva': '/media/entrada/IMG_2255.jpeg',
+  'revitalizacao-de-farois': '/media/entrada/IMG_2147.jpeg',
+  'estetica-automotiva': '/media/entrada/IMG_2255.jpeg',
+  'som-e-acessorios-automotivos': '/media/entrada/9F09F1C8-414F-4A6D-95F5-EAF142B64706.jpeg',
+  'estetica-de-motocicletas': '/media/entrada/moto01.jpeg',
+};
+const serviceBackground = serviceBackgrounds[service.slug] || '/media/entrada/moto02.jpeg';
 const schema = { '@context':'https://schema.org', '@type':'Service', name:service.title, description:service.description, provider:{ '@type':'AutomotiveBusiness', name:company.name, address:{ '@type':'PostalAddress', addressLocality:'São José dos Campos', addressRegion:'SP', addressCountry:'BR' } }, areaServed:'São José dos Campos — SP' };
 ---
 <BaseLayout title={service.title} description={`${service.title} em São José dos Campos. Entenda aplicações, possibilidades e cuidados antes de conversar com a Mcqueen Studio.`} path={`/${service.slug}/`} schema={schema} breadcrumbs={[service.title]}>
-  <section class="service-hero"><div class="wrap"><div class="service-meta"><strong>{service.number}</strong><span>{service.eyebrow}</span></div><h1>{service.title}</h1><p class="hero-copy">{service.short}</p></div></section>
+  <section class="service-hero service-hero-frozen" style={"--service-bg: url('" + serviceBackground + "')"}><div class="wrap"><div class="service-meta"><strong>{service.number}</strong><span>{service.eyebrow}</span></div><h1>{service.title}</h1><p class="hero-copy">{service.short}</p></div></section>
   <section class="service-content"><div class="wrap service-layout"><div><p class="eyebrow">Sobre o serviço</p><p>{service.description}</p><ul class="service-list">{service.bullets.map((bullet) => <li>{bullet}</li>)}</ul><div class="hero-actions"><a class="button button-primary" href={whatsappUrl(service.title)} target="_blank" rel="noreferrer">Falar sobre este serviço <span>↗</span></a><a class="button button-secondary" href="/#servicos">Ver outros serviços <span>↓</span></a></div></div><div><MediaSlot src={service.imagePath} alt={`Foto real de ${service.title}`} label="Foto real pendente" /></div></div></section>
   <section class="service-related"><div class="wrap"><div class="section-heading"><p class="eyebrow">Próxima leitura</p><h2>Outras possibilidades.</h2></div><div class="services-grid">{services.filter((item) => item.slug !== service.slug).slice(0,4).map((item) => <ServiceCard service={item} />)}</div></div></section>
   <WhatsAppButton service={service.title} />
