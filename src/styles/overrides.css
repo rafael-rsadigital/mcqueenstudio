@@ -165,3 +165,14 @@
 .sound-off-slash { opacity: 0; stroke: #ef233c; stroke-width: 2.5; }
 .soundtrack-toggle:not(.is-playing) .sound-wave { opacity: 0; }
 .soundtrack-toggle:not(.is-playing) .sound-off-slash { opacity: 1; }
+
+
+/* Refinamento da composição da hero: conteúdo mais alto e título 10% menor. */
+@media (min-width: 681px) {
+  .hero .hero-content { transform: translateY(-78px); }
+  .hero .hero-content h1 { font-size: clamp(2.52rem, 5.76vw, 5.76rem); }
+}
+@media (max-width: 680px) {
+  .hero .hero-content { transform: translateY(-68px); }
+  .hero .hero-content h1 { font-size: clamp(2.385rem, 9.9vw, 3.78rem); }
+}
