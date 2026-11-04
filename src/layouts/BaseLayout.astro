@@ -24,7 +24,8 @@ const pageTitle = title?.includes('Mcqueen') ? title : `${title} | ${company.sho
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={new URL(image, Astro.site || 'https://mcqueenstudio.com.br').toString()} />
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/media/logo/mcqueen-studio.png" type="image/png" />
+    <link rel="apple-touch-icon" href="/media/logo/mcqueen-studio.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
