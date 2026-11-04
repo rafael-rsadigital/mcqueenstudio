@@ -176,3 +176,31 @@
   .hero .hero-content { transform: translateY(-68px); }
   .hero .hero-content h1 { font-size: clamp(2.385rem, 9.9vw, 3.78rem); }
 }
+
+/* Correção de alinhamento da hero e fundos fotográficos nas páginas internas. */
+@media (min-width: 681px) {
+  .hero { align-items: center; padding: 130px 0 80px; }
+  .hero .hero-content { transform: none; }
+}
+@media (max-width: 680px) {
+  .hero { align-items: center; padding: 105px 0 70px; }
+  .hero .hero-content { transform: none; }
+}
+.service-hero-photo { position: relative; isolation: isolate; overflow: hidden; background: #08090b; }
+.service-hero-photo::before {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  background-image: linear-gradient(90deg, rgba(7,7,8,.88), rgba(7,7,8,.62)), var(--service-page-bg);
+  background-size: cover;
+  background-position: center 52%;
+  background-attachment: fixed;
+}
+.service-hero-photo .wrap { position: relative; z-index: 1; }
+@media (max-width: 680px) {
+  .service-hero-photo::before { background-attachment: scroll; background-position: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .service-hero-photo::before { background-attachment: scroll; }
+}
