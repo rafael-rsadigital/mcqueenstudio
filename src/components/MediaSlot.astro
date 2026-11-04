@@ -1,8 +1,8 @@
 ---
-const { src, type = 'image', alt = 'Mídia real da Mcqueen Studio', label = 'Mídia real pendente', className = '' } = Astro.props;
+const { src, type = 'image', alt = 'Mídia real da Mcqueen Studio', label = 'Mídia real pendente', className = '', loading = 'lazy' } = Astro.props;
 ---
 <div class={`media-slot ${className}`} data-media-slot>
-  {type === 'video' ? <video src={src} muted playsinline loop preload="metadata" aria-label={alt}></video> : <img src={src} alt={alt} loading="lazy" width="1600" height="1100" onerror="this.style.display='none'" />}
+  {type === 'video' ? <video src={src} muted playsinline loop preload="metadata" aria-label={alt}></video> : <img src={src} alt={alt} loading={loading} decoding="async" width="1600" height="1100" onerror="this.style.display='none'" />}
   <div class="media-slot-note"><span class="media-pulse"></span><strong>{label}</strong><small>{src}</small></div>
 </div>
 <script is:inline>
