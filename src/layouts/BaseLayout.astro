@@ -3,6 +3,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { company } from '../data/site.js';
 import '../styles/global.css';
+import '../styles/overrides.css';
 const { title, description, path = '/', image = '/og-image.svg', schema = null, breadcrumbs = [] } = Astro.props;
 const canonical = new URL(path, Astro.site || 'https://mcqueenstudio.com.br').toString();
 const pageTitle = title?.includes('Mcqueen') ? title : `${title} | ${company.shortName}`;
@@ -24,8 +25,8 @@ const pageTitle = title?.includes('Mcqueen') ? title : `${title} | ${company.sho
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={new URL(image, Astro.site || 'https://mcqueenstudio.com.br').toString()} />
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="icon" href="/media/logo/mcqueen-studio.png" type="image/png" />
-    <link rel="apple-touch-icon" href="/media/logo/mcqueen-studio.png" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
@@ -45,6 +46,12 @@ const pageTitle = title?.includes('Mcqueen') ? title : `${title} | ${company.sho
       toggle?.addEventListener('click', () => { const open = menu?.classList.toggle('is-open'); toggle.setAttribute('aria-expanded', String(Boolean(open))); document.body.classList.toggle('menu-open', Boolean(open)); });
       menu?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => { menu.classList.remove('is-open'); toggle?.setAttribute('aria-expanded', 'false'); document.body.classList.remove('menu-open'); }));
       document.querySelectorAll('[data-year]').forEach((el) => el.textContent = String(new Date().getFullYear()));
+      const revealItems = document.querySelectorAll('main > section:not(.hero), main .service-card, main .review-card, main .gallery-item, main .timeline-step, main .contact-card, main .map-note');
+      revealItems.forEach((item) => item.classList.add('reveal-on-scroll'));
+      if ('IntersectionObserver' in window) {
+        const revealObserver = new IntersectionObserver((entries, observer) => { entries.forEach((entry) => { if (entry.isIntersecting) { entry.target.classList.add('is-revealed'); observer.unobserve(entry.target); } }); }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+        revealItems.forEach((item) => revealObserver.observe(item));
+      } else revealItems.forEach((item) => item.classList.add('is-revealed'));
     </script>
   </body>
 </html>
