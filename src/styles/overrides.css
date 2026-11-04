@@ -97,3 +97,39 @@
 @media (prefers-reduced-motion: reduce) { .frozen-photo-section::before, .service-hero-frozen::before { background-attachment: scroll; } }
 .gallery-comparison .comparison-after { clip-path: inset(0 0 0 var(--split, 50%)); }
 .gallery-comparison .comparison-before img, .gallery-comparison .comparison-after img { object-fit: cover; object-position: center; }
+
+
+/* Controle discreto da trilha sonora da home. */
+.soundtrack-toggle {
+  position: fixed;
+  z-index: 16;
+  left: 22px;
+  bottom: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 42px;
+  padding: 0 14px;
+  border: 1px solid rgba(255,255,255,.22);
+  border-radius: 999px;
+  color: #f4f4f1;
+  background: rgba(7,8,10,.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  font: 700 .65rem/1 Manrope, Arial, sans-serif;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background .25s, border-color .25s, transform .25s;
+}
+.soundtrack-toggle:hover { transform: translateY(-2px); border-color: rgba(239,35,60,.8); }
+.soundtrack-toggle.is-playing { background: rgba(22,22,25,.88); border-color: rgba(239,35,60,.72); }
+.soundtrack-icon { color: #ff5368; font-size: 1.15rem; line-height: 1; }
+.soundtrack-toggle.is-playing .soundtrack-icon { animation: soundtrack-pulse 1.8s ease-in-out infinite; }
+@keyframes soundtrack-pulse { 50% { opacity: .48; transform: scale(.9); } }
+@media (max-width: 680px) {
+  .soundtrack-toggle { left: 14px; bottom: 16px; min-height: 40px; padding-inline: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .soundtrack-toggle, .soundtrack-toggle.is-playing .soundtrack-icon { transition: none; animation: none; }
+}
