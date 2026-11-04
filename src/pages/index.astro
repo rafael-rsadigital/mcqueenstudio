@@ -8,7 +8,7 @@ const schema = { '@context':'https://schema.org', '@type':'AutomotiveBusiness', 
 ---
 <BaseLayout title="Estética Automotiva em São José dos Campos" description="Mcqueen Studio Automotivo em São José dos Campos: envelopamento, PPF, polimento, vitrificação, faróis, estética e projetos automotivos." schema={schema}>
   <section class="hero"><div class="hero-media"><div class="hero-desktop-media"><MediaSlot src="/media/hero/hero-desktop-01.jpg" alt="Foto horizontal real para o hero da Mcqueen Studio" label="Foto do hero pendente" loading="eager" /></div><video class="hero-mobile-video" src="/media/hero/hero-mobile-01.mp4" muted playsinline autoplay loop preload="auto" aria-label="Vídeo vertical da Mcqueen Studio Automotivo" poster="/media/hero/hero-desktop-01.jpg"></video></div><div class="wrap hero-content"><div class="hero-kicker">Estética & personalização · SJC</div><h1>Estética Automotiva em São José dos Campos</h1><p class="hero-copy">Envelopamento, PPF, polimento, vitrificação e personalização automotiva. A Mcqueen Studio realiza projetos de estética e acabamento para carros e motocicletas em São José dos Campos.</p><div class="hero-actions"><a class="button button-secondary" href="#servicos">Explorar serviços <span>↓</span></a></div></div><div class="scroll-cue">role para descobrir</div></section>
-  <audio id="mcqueen-soundtrack" src="/media/musica/mixkit-carry-on-1091.mp3" preload="auto" loop></audio>
+  <audio id="mcqueen-soundtrack" src="/media/musica/mixkit-carry-on-1091.mp3" autoplay preload="auto" loop></audio>
   <button class="soundtrack-toggle" type="button" aria-label="Ativar trilha sonora" aria-pressed="false" data-soundtrack-toggle>
     <svg class="soundtrack-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
       <path d="M4 10v4h4l5 4V6l-5 4H4Z" />
@@ -80,7 +80,7 @@ const schema = { '@context':'https://schema.org', '@type':'AutomotiveBusiness', 
       const audio = document.getElementById('mcqueen-soundtrack');
       const button = document.querySelector('[data-soundtrack-toggle]');
       if (!audio || !button) return;
-      const targetVolume = 0.075; // 25% abaixo do volume anterior de 10%.
+      const targetVolume = 0.075;
       let fadeTimer = null;
       let isPlaying = false;
 
@@ -108,27 +108,8 @@ const schema = { '@context':'https://schema.org', '@type':'AutomotiveBusiness', 
         button.setAttribute('aria-label', playing ? 'Desligar trilha sonora' : 'Ativar trilha sonora');
       };
 
-      audio.volume = 0;
       const startPlayback = async () => {
-        try {
-          await audio.play();
-          setState(true);
-          fadeTo(targetVolume, 2600);
-        } catch (error) {
-          // Navegadores podem bloquear autoplay com áudio; o controle permanece disponível.
-          setState(false);
-        }
-      };
-
-      // Tenta iniciar automaticamente; a política do navegador pode exigir interação.
-      startPlayback();
-
-      button.addEventListener('click', async () => {
-        if (isPlaying) {
-          setState(false);
-          fadeTo(0, 900, () => audio.pause());
-          return;
-        }
+        if (isPlaying) return;
         try {
           audio.volume = 0;
           await audio.play();
@@ -137,6 +118,30 @@ const schema = { '@context':'https://schema.org', '@type':'AutomotiveBusiness', 
         } catch (error) {
           setState(false);
         }
+      };
+
+      // Tenta iniciar com áudio assim que a página abre.
+      audio.volume = 0;
+      startPlayback();
+
+      // Se o navegador bloquear autoplay audível, inicia na primeira interação com a página.
+      const unlockOnInteraction = (event) => {
+        if (event.target === button || button.contains(event.target)) return;
+        startPlayback();
+      };
+      document.addEventListener('pointerdown', unlockOnInteraction, { once: true, passive: true });
+      document.addEventListener('keydown', unlockOnInteraction, { once: true });
+
+      button.addEventListener('click', async () => {
+        if (isPlaying) {
+          setState(false);
+          fadeTo(0, 900, () => audio.pause());
+          return;
+        }
+        await startPlayback();
+      });
+      audio.addEventListener('pause', () => {
+        if (audio.currentTime > 0 && audio.volume === 0) setState(false);
       });
       audio.addEventListener('ended', () => setState(false));
     })();
