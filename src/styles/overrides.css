@@ -316,3 +316,83 @@ body:has(.service-index-hero) .site-header:not(.is-scrolled) {
 
 /* Fotos da galeria: exibir os arquivos reais sem camada de placeholder. */
 .gallery-item .media-slot img { opacity: 1; }
+
+
+/* Galeria: texto e comparador lado a lado no desktop; imagem vertical ampliada no mobile. */
+.gallery-intro {
+  padding: 96px 0 64px;
+}
+.gallery-intro-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 420px);
+  align-items: center;
+  column-gap: clamp(42px, 7vw, 108px);
+}
+.gallery-intro-copy {
+  max-width: 560px;
+  margin: 0;
+}
+.gallery-intro-copy h1 {
+  font-size: clamp(2rem, 3.5vw, 3.35rem);
+  line-height: 1.04;
+}
+.gallery-intro-copy .hero-copy {
+  max-width: 480px;
+  font-size: .9rem;
+}
+.gallery-comparison {
+  width: 100%;
+  min-width: 0;
+  justify-self: end;
+}
+.gallery-comparison .comparison {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 9 / 16;
+  max-height: 690px;
+  overflow: hidden;
+}
+.gallery-comparison .comparison-side img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+@media (max-width: 680px) {
+  .gallery-intro {
+    padding: 86px 0 34px;
+  }
+  .gallery-intro-grid {
+    display: block;
+  }
+  .gallery-intro-copy {
+    max-width: 100%;
+    margin: 0 0 22px;
+  }
+  .gallery-intro-copy h1 {
+    font-size: 1.55rem;
+    margin-bottom: 9px;
+  }
+  .gallery-intro-copy .eyebrow {
+    margin-bottom: 7px;
+  }
+  .gallery-intro-copy .hero-copy {
+    font-size: .82rem;
+  }
+  .gallery-comparison {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+  }
+  .gallery-comparison .comparison {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 9 / 16;
+    max-height: none;
+    border-radius: 0;
+  }
+  .gallery-comparison .comparison-side img {
+    object-fit: cover;
+    object-position: center;
+  }
+}
