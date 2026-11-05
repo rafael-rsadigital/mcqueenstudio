@@ -1,0 +1,24 @@
+{
+  "redirects": [
+    {
+      "source": "/som-e-acessorios-automotivos",
+      "destination": "/servicos/",
+      "permanent": true
+    },
+    {
+      "source": "/estetica-de-motocicletas",
+      "destination": "/servicos/",
+      "permanent": true
+    },
+    {
+      "source": "/revitalizacao-de-farois",
+      "destination": "/restauracao-de-farois/",
+      "permanent": true
+    },
+    {
+      "source": "/estetica-automotiva",
+      "destination": "/higienizacao-automotiva/",
+      "permanent": true
+    }
+  ]
+}
