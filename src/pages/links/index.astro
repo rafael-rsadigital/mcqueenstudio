@@ -50,10 +50,15 @@ const mapEmbedUrl = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3619.
         </a>
       </section>
       <a class="linktree-site-link" href="/">Conheça o site completo <span>↗</span></a>
+      <a class="linktree-course-link" href="https://pay.hotmart.com/G97791543R?off=eh99yfr3&utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAcGRvZgJzcnRjBmFwcF9pZA85MzY2MTk3NDMzOTI0NTkAAaf2dOw4nWLybxZYuDg-RzkctnTr3WHBMNg4TMjQZ7a6MAeaqFh7GMCC8z-wug_aem_hPi89jdJ9GxUVKtKizqg6Q&bid=1793917666228" target="_blank" rel="noopener noreferrer">
+        <span class="course-link-icon" aria-hidden="true">▶</span>
+        <span class="course-link-copy"><small>Curso online</small><strong>Envelopando com Mcqueen</strong><em>Técnica do Envelopamento Automotivo</em></span>
+        <span class="course-link-arrow" aria-hidden="true">↗</span>
+      </a>
 
-      <section class="linktree-section" aria-labelledby="linktree-services-title">
+      <section class="linktree-section linktree-services-section" aria-labelledby="linktree-services-title">
         <details class="linktree-services-disclosure">
-          <summary><span class="linktree-section-kicker">01 / Serviços</span><strong id="linktree-services-title">Escolha o próximo detalhe.</strong><i aria-hidden="true">⌄</i></summary>
+          <summary><span class="services-summary-icon" aria-hidden="true">✦</span><span class="services-summary-copy"><strong id="linktree-services-title">Nossos serviços</strong><small>Conheça tudo o que fazemos</small></span><span class="services-summary-action">Ver serviços <i aria-hidden="true">⌄</i></span></summary>
           <div class="linktree-services">{services.map((service) => <a href={`/${service.slug}/`} class="linktree-service"><span>{service.number}</span><strong>{service.title}</strong><i>↗</i></a>)}</div>
         </details>
       </section>
