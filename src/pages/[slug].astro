@@ -6,6 +6,57 @@ import WhatsAppButton from '../components/WhatsAppButton.astro';
 import { services, company, whatsappUrl } from '../data/site.js';
 export function getStaticPaths(){ return services.map((service) => ({ params:{ slug:service.slug }, props:{ service } })); }
 const { service } = Astro.props;
+const serviceSeo = {
+  'envelopamento-automotivo': {
+    title: 'Envelopamento Automotivo em São José dos Campos',
+    description: 'Envelopamento automotivo em São José dos Campos: personalização total ou parcial, teto, retrovisores, faixas e detalhes externos. Conheça a Mcqueen Studio.',
+    heading: 'Personalização e aplicação do envelopamento',
+    paragraph: 'O projeto de envelopamento é definido de acordo com as áreas escolhidas, o material adequado e as condições da pintura. A Mcqueen Studio avalia o veículo para orientar a solução de personalização mais apropriada.'
+  },
+  'ppf-automotivo': {
+    title: 'PPF Automotivo em São José dos Campos',
+    description: 'PPF automotivo em São José dos Campos para proteção da pintura com filme transparente. Consulte a Mcqueen Studio sobre áreas de aplicação e avaliação do veículo.',
+    heading: 'Proteção da pintura com filme PPF',
+    paragraph: 'A aplicação do PPF começa pela avaliação da pintura e pela definição das áreas que receberão o filme de proteção. A indicação considera a superfície do veículo e a necessidade de cada proprietário.'
+  },
+  'polimento-automotivo': {
+    title: 'Polimento Automotivo em São José dos Campos',
+    description: 'Polimento automotivo em São José dos Campos para correção de marcas compatíveis com o processo e recuperação do brilho da pintura. Mcqueen Studio.',
+    heading: 'Correção e recuperação do brilho da pintura',
+    paragraph: 'Antes do polimento, a pintura precisa ser avaliada para identificar suas condições e definir o tratamento compatível. O resultado possível varia conforme o estado da superfície e as características das marcas.'
+  },
+  'vitrificacao-automotiva': {
+    title: 'Vitrificação Automotiva em São José dos Campos',
+    description: 'Vitrificação automotiva em São José dos Campos: preparação da pintura e aplicação de proteção para valorizar o acabamento. Atendimento Mcqueen Studio.',
+    heading: 'Preparação da pintura e proteção',
+    paragraph: 'A vitrificação é indicada após a análise e a preparação da pintura. O produto e os cuidados posteriores são considerados na orientação do serviço, pois a durabilidade depende da aplicação e da rotina de uso do veículo.'
+  },
+  'enceramento-automotivo': {
+    title: 'Enceramento Automotivo em São José dos Campos',
+    description: 'Enceramento automotivo em São José dos Campos para realçar o brilho e oferecer proteção superficial à pintura. Consulte a Mcqueen Studio.',
+    heading: 'Cuidado e realce do brilho da pintura',
+    paragraph: 'O enceramento é uma alternativa de cuidado para a pintura, com resultado relacionado à condição da superfície e ao produto utilizado. A avaliação ajuda a definir a preparação e a aplicação mais adequadas.'
+  },
+  'higienizacao-automotiva': {
+    title: 'Higienização Automotiva em São José dos Campos',
+    description: 'Higienização automotiva em São José dos Campos: limpeza interna de bancos, carpetes e superfícies, conforme os materiais do veículo. Mcqueen Studio.',
+    heading: 'Limpeza interna conforme os materiais do veículo',
+    paragraph: 'O processo de higienização é orientado pelas condições do interior e pelos materiais presentes no veículo. Bancos, carpetes, painéis e outras superfícies são avaliados para indicar os cuidados de limpeza compatíveis.'
+  },
+  'restauracao-de-farois': {
+    title: 'Restauração de Faróis em São José dos Campos',
+    description: 'Restauração de faróis em São José dos Campos para melhorar a transparência e a aparência de lentes opacas ou desgastadas. Avaliação na Mcqueen Studio.',
+    heading: 'Recuperação estética das lentes dos faróis',
+    paragraph: 'Faróis com opacidade ou desgaste podem passar por avaliação para identificar a condição das lentes e a técnica indicada. A possibilidade de recuperação depende do estado de cada peça.'
+  },
+  'auto-vitrais': {
+    title: 'Auto Vitrais em São José dos Campos',
+    description: 'Serviços de auto vitrais em São José dos Campos. Entre em contato com a Mcqueen Studio para apresentar a necessidade e consultar a avaliação do veículo.',
+    heading: 'Atendimento em auto vitrais',
+    paragraph: 'O atendimento em auto vitrais é direcionado conforme a necessidade apresentada. Entre em contato para explicar o que precisa no veículo e receber orientação sobre a avaliação do serviço.'
+  }
+};
+const seo = serviceSeo[service.slug];
 const serviceBackgrounds = {
   'envelopamento-automotivo': '/media/entrada/envelopamento-do-teto.jpeg',
   'ppf-automotivo': '/media/entrada/9F09F1C8-414F-4A6D-95F5-EAF142B64706.jpeg',
@@ -17,11 +68,33 @@ const serviceBackgrounds = {
   'auto-vitrais': '/media/entrada/Sem%20t%C3%ADtulo23.jpg',
 };
 const serviceBackground = serviceBackgrounds[service.slug] || '/media/entrada/moto02.jpeg';
-const schema = { '@context':'https://schema.org', '@type':'Service', name:service.title, description:service.description, provider:{ '@type':'AutomotiveBusiness', name:company.name, address:{ '@type':'PostalAddress', addressLocality:'São José dos Campos', addressRegion:'SP', addressCountry:'BR' } }, areaServed:'São José dos Campos — SP' };
+const pageUrl = new URL(`/${service.slug}/`, Astro.site || 'https://mcqueenstudio.vercel.app').toString();
+const schema = {
+  '@context':'https://schema.org',
+  '@type':'Service',
+  name:service.title,
+  serviceType:service.title,
+  description:seo.description,
+  url:pageUrl,
+  provider:{
+    '@type':'AutomotiveBusiness',
+    name:company.name,
+    url:'https://mcqueenstudio.vercel.app/',
+    address:{
+      '@type':'PostalAddress',
+      streetAddress:'Rua Dr. Mario Sampaio Martins, 652',
+      addressLocality:'São José dos Campos',
+      addressRegion:'SP',
+      postalCode:'12245-100',
+      addressCountry:'BR'
+    }
+  },
+  areaServed:{ '@type':'City', name:'São José dos Campos' }
+};
 ---
-<BaseLayout title={service.title} description={`${service.title} em São José dos Campos: ${service.short} Consulte a Mcqueen Studio sobre aplicações, avaliação e disponibilidade para seu veículo.`} path={`/${service.slug}/`} schema={schema} breadcrumbs={[service.title]}>
-  <section class="service-hero service-hero-frozen" style={"--service-bg: url('" + serviceBackground + "')"}><div class="wrap"><div class="service-meta"><strong>{service.number}</strong><span>{service.eyebrow}</span></div><h1>{service.title}</h1><p class="hero-copy">{service.short}</p></div></section>
-  <section class="service-content"><div class="wrap service-layout"><div><p class="eyebrow">Detalhes do atendimento</p><h2>Sobre {service.title.toLowerCase()}</h2><p>{service.description}</p><h2>O que considerar neste serviço</h2><ul class="service-list">{service.bullets.map((bullet) => <li>{bullet}</li>)}</ul><div class="hero-actions"><a class="button button-primary" href={whatsappUrl(service.title)} target="_blank" rel="noreferrer">Falar sobre este serviço <span>↗</span></a><a class="button button-secondary" href="/#servicos">Ver outros serviços <span>↓</span></a></div></div><div><MediaSlot src={service.imagePath} alt={`Foto real de ${service.title}`} label="Foto real pendente" /></div></div></section>
-  <section class="service-related"><div class="wrap"><div class="section-heading"><p class="eyebrow">Próxima leitura</p><h2>Outras possibilidades.</h2></div><div class="services-grid">{services.filter((item) => item.slug !== service.slug).slice(0,4).map((item) => <ServiceCard service={item} />)}</div></div></section>
+<BaseLayout title={seo.title} description={seo.description} path={`/${service.slug}/`} schema={schema} breadcrumbs={[service.title]}>
+  <section class="service-hero service-hero-frozen" style={"--service-bg: url('" + serviceBackground + "')"}><div class="wrap"><div class="service-meta"><strong>{service.number}</strong><span>{service.eyebrow}</span></div><h1>{service.title} em São José dos Campos</h1><p class="hero-copy">{service.short}</p></div></section>
+  <section class="service-content"><div class="wrap service-layout"><div><p class="eyebrow">Detalhes do atendimento</p><h2>{seo.heading}</h2><p>{service.description}</p><p>{seo.paragraph}</p><h2>Etapas e pontos de avaliação</h2><ul class="service-list">{service.bullets.map((bullet) => <li>{bullet}</li>)}</ul><div class="hero-actions"><a class="button button-primary" href={whatsappUrl(service.title)} target="_blank" rel="noreferrer">Falar sobre este serviço <span>↗</span></a><a class="button button-secondary" href="/#servicos">Ver outros serviços <span>↓</span></a></div></div><div><MediaSlot src={service.imagePath} alt={`Foto real de ${service.title}`} label="Foto real pendente" /></div></div></section>
+  <section class="service-related"><div class="wrap"><div class="section-heading"><p class="eyebrow">Conheça outros serviços</p><h2>Outros cuidados para o seu veículo.</h2></div><div class="services-grid">{services.filter((item) => item.slug !== service.slug).slice(0,4).map((item) => <ServiceCard service={item} />)}</div></div></section>
   <WhatsAppButton service={service.title} />
 </BaseLayout>
