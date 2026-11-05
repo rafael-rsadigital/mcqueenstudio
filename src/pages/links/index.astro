@@ -59,7 +59,7 @@ const mapEmbedUrl = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3619.
       <section class="linktree-section linktree-services-section" aria-labelledby="linktree-services-title">
         <details class="linktree-services-disclosure">
           <summary><span class="services-summary-icon" aria-hidden="true">✦</span><span class="services-summary-copy"><strong id="linktree-services-title">Nossos serviços</strong><small>Conheça tudo o que fazemos</small></span><span class="services-summary-action">Ver serviços <i aria-hidden="true">⌄</i></span></summary>
-          <div class="linktree-services">{services.map((service) => <a href={`/${service.slug}/`} class="linktree-service"><span>{service.number}</span><strong>{service.title}</strong><i>↗</i></a>)}</div>
+          <div class="linktree-services">{services.map((service) => <a href={whatsappUrl(service.title)} target="_blank" rel="noopener noreferrer" class="linktree-service" aria-label={`Consultar sobre ${service.title} pelo WhatsApp`}><span>{service.number}</span><strong>{service.title}</strong><i>↗</i></a>)}</div>
         </details>
       </section>
 
