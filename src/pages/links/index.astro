@@ -52,8 +52,10 @@ const mapEmbedUrl = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3619.
       <a class="linktree-site-link" href="/">Conheça o site completo <span>↗</span></a>
 
       <section class="linktree-section" aria-labelledby="linktree-services-title">
-        <div class="linktree-section-heading"><span>01 / Serviços</span><h2 id="linktree-services-title">Escolha o próximo detalhe.</h2></div>
-        <div class="linktree-services">{services.map((service) => <a href={`/${service.slug}/`} class="linktree-service"><span>{service.number}</span><strong>{service.title}</strong><i>↗</i></a>)}</div>
+        <details class="linktree-services-disclosure">
+          <summary><span class="linktree-section-kicker">01 / Serviços</span><strong id="linktree-services-title">Escolha o próximo detalhe.</strong><i aria-hidden="true">⌄</i></summary>
+          <div class="linktree-services">{services.map((service) => <a href={`/${service.slug}/`} class="linktree-service"><span>{service.number}</span><strong>{service.title}</strong><i>↗</i></a>)}</div>
+        </details>
       </section>
 
       <section class="linktree-section linktree-reviews" aria-labelledby="linktree-reviews-title">
