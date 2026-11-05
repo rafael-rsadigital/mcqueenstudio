@@ -4,13 +4,24 @@
 A Mcqueen Studio Automotivo atende em São José dos Campos — SP com serviços de estética, proteção e personalização automotiva.
 
 ## Páginas principais
-- /: apresentação e serviços
-- /galeria/: projetos reais, quando as fotos forem inseridas
-- /sobre/: posicionamento e processo
-- /contato/: WhatsApp, Instagram e endereço cadastrado para confirmação
+- https://mcqueenstudio.vercel.app/: apresentação e serviços
+- https://mcqueenstudio.vercel.app/servicos/: catálogo de serviços
+- https://mcqueenstudio.vercel.app/galeria/: projetos e registros fotográficos
+- https://mcqueenstudio.vercel.app/sobre/: apresentação do estúdio
+- https://mcqueenstudio.vercel.app/contato/: canais de atendimento e localização
 
 ## Serviços
-Envelopamento automotivo, PPF automotivo, polimento automotivo, vitrificação automotiva, revitalização de faróis, estética automotiva, som e acessórios automotivos e estética de motocicletas.
+- Envelopamento automotivo
+- PPF automotivo
+- Polimento automotivo
+- Vitrificação automotiva
+- Enceramento automotivo
+- Higienização automotiva
+- Restauração de faróis
+- Auto vitrais
+
+## Localização
+São José dos Campos — SP, Brasil.
 
 ## Cuidados de interpretação
 Não atribuir marcas, garantias, horários, avaliações, fotos ou resultados não confirmados. A galeria deve usar apenas mídias reais da empresa.
