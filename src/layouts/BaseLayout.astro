@@ -4,7 +4,7 @@ import Footer from '../components/Footer.astro';
 import { company } from '../data/site.js';
 import '../styles/global.css';
 import '../styles/overrides.css';
-const { title, description, path = '/', image = '/og-image.svg', schema = null, breadcrumbs = [] } = Astro.props;
+const { title, description, path = '/', image = '/og-image.svg', schema = null } = Astro.props;
 const canonical = new URL(path, Astro.site || 'https://mcqueenstudio.com.br').toString();
 const pageTitle = title?.includes('Mcqueen') ? title : `${title} | ${company.shortName}`;
 ---
@@ -34,7 +34,6 @@ const pageTitle = title?.includes('Mcqueen') ? title : `${title} | ${company.sho
   </head>
   <body>
     <Header />
-    {breadcrumbs.length > 0 && <nav class="breadcrumbs wrap" aria-label="Breadcrumb"><a href="/">Início</a>{breadcrumbs.map((item: string) => <><span>/</span><span aria-current="page">{item}</span></>)}</nav>}
     <main><slot /></main>
     <Footer />
     <script>
