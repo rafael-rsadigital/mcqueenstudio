@@ -5,7 +5,7 @@ import { company } from '../data/site.js';
 import '../styles/global.css';
 import '../styles/overrides.css';
 const { title, description, path = '/', image = '/og-image.svg', schema = null } = Astro.props;
-const canonical = new URL(path, Astro.site || 'https://mcqueenstudio.com.br').toString();
+const canonical = new URL(path, Astro.site || 'https://mcqueenstudio.vercel.app').toString();
 const pageTitle = title?.includes('Mcqueen') ? title : `${title} | ${company.shortName}`;
 ---
 <!doctype html>
@@ -23,7 +23,7 @@ const pageTitle = title?.includes('Mcqueen') ? title : `${title} | ${company.sho
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={new URL(image, Astro.site || 'https://mcqueenstudio.com.br').toString()} />
+    <meta property="og:image" content={new URL(image, Astro.site || 'https://mcqueenstudio.vercel.app').toString()} />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/favicon.svg" />
@@ -48,7 +48,7 @@ const pageTitle = title?.includes('Mcqueen') ? title : `${title} | ${company.sho
       const revealItems = document.querySelectorAll('main > section:not(.hero), main .service-card, main .review-card, main .gallery-item, main .timeline-step, main .contact-card, main .map-note');
       revealItems.forEach((item) => item.classList.add('reveal-on-scroll'));
       if ('IntersectionObserver' in window) {
-        const revealObserver = new IntersectionObserver((entries, observer) => { entries.forEach((entry) => { if (entry.isIntersecting) { entry.target.classList.add('is-revealed'); observer.unobserve(entry.target); } }); }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+        const revealObserver = new IntersectionObserver((entries, observer) => { entries.forEach((entry) => { if (entry.isIntersecting) { entry.target.classList.add('is-revealed'); observer.unobserve(entry.target); } }); }, { threshold: 0.01, rootMargin: '160px 0px 160px 0px' });
         revealItems.forEach((item) => revealObserver.observe(item));
       } else revealItems.forEach((item) => item.classList.add('is-revealed'));
     </script>
