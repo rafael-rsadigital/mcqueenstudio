@@ -449,7 +449,6 @@ body:has(.service-index-hero) .site-header:not(.is-scrolled) {
 
 /* Ajustes solicitados — capa de vídeo, fundos e cabeçalho interno. */
 .hero-mobile-video { background: #08090b; }
-.hero-mobile-video.video-frame-ready { poster: none; }
 @media (max-width: 680px) {
   /* Reposiciona o fundo da seção de serviços para revelar o veículo, não apenas a parede. */
   .frozen-services::before { background-position: center 72% !important; }
