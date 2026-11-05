@@ -44,14 +44,11 @@
 .linktree-quick-link { display: flex; flex-direction: column; align-items: center; gap: 9px; min-width: 0; color: #f4f4f1; text-decoration: none; font-size: .65rem; font-weight: 800; letter-spacing: .045em; text-transform: uppercase; transition: transform .22s ease, opacity .22s ease; }
 .linktree-quick-link:hover, .linktree-quick-link:focus-visible { transform: translateY(-4px); opacity: .9; }
 .quick-icon { width: 60px; height: 60px; display: grid; place-items: center; border-radius: 19px; background: linear-gradient(145deg, #25272d, #121418); border: 1px solid rgba(255,255,255,.13); box-shadow: 0 9px 24px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.12); }
-.quick-icon svg { width: 30px; height: 30px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.quick-icon img { display: block; width: 32px; height: 32px; object-fit: contain; }
 .quick-whatsapp .quick-icon { background: linear-gradient(145deg, #20d76b, #079a59); color: #fff; border: 0; }
-.quick-whatsapp .quick-icon svg { fill: none; }
-.quick-location .quick-icon { background: #fff; color: #4285f4; border: 0; }
-.quick-google .quick-icon { background: #fff; border: 0; font: 800 2.25rem Arial,sans-serif; color: #4285f4; text-shadow: 1.5px 1.5px #34a853, -1px -1px #ea4335; }
+.quick-whatsapp .quick-icon img, .quick-instagram .quick-icon img { filter: brightness(0) invert(1); }
+.quick-location .quick-icon, .quick-google .quick-icon { background: #fff; border: 0; }
 .quick-instagram .quick-icon { background: radial-gradient(circle at 30% 110%, #ffd776 0 20%, #f56040 42%, #c13584 68%, #833ab4 100%); border: 0; color: #fff; }
-.quick-instagram .quick-icon svg { stroke-width: 1.9; }
-.instagram-dot { fill: currentColor; stroke: none; }
 .linktree-site-link { display: flex; justify-content: center; align-items: center; gap: 10px; margin: 4px auto 0; color: #c5c6ca; font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
 .linktree-site-link span { color: #ef233c; font-size: 1rem; }
 .linktree-section { margin-top: 48px; }
