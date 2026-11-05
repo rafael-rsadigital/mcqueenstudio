@@ -61,14 +61,25 @@
 .linktree-section-heading p { margin: 0; color: #9699a2; font-size: .82rem; }
 .linktree-section-heading p strong { color: #f4f4f1; font-size: 1.1rem; }
 .linktree-services-disclosure { border: 1px solid #292c33; border-radius: 12px; background: rgba(20,22,27,.78); overflow: hidden; }
-.linktree-services-disclosure summary { display: grid; grid-template-columns: 1fr 24px; gap: 12px; align-items: center; padding: 16px 17px; color: #e7e8e6; cursor: pointer; list-style: none; }
+.linktree-services-disclosure summary { display: flex; align-items: center; gap: 13px; min-height: 76px; padding: 14px 17px; color: #e7e8e6; cursor: pointer; list-style: none; transition: background .2s ease; }
 .linktree-services-disclosure summary::-webkit-details-marker { display: none; }
 .linktree-services-disclosure summary:hover, .linktree-services-disclosure summary:focus-visible { background: #1b1d23; }
-.linktree-services-disclosure summary strong { display: block; margin-top: 4px; font-family: 'Space Grotesk',sans-serif; font-size: .92rem; letter-spacing: -.02em; }
-.linktree-section-kicker { display: block; grid-column: 1 / -1; color: #ef233c; font-size: .65rem; letter-spacing: .16em; text-transform: uppercase; font-weight: 800; }
-.linktree-services-disclosure summary > i { grid-column: 2; grid-row: 1 / span 2; color: #8c8f98; font-style: normal; font-size: 1.3rem; transition: transform .2s ease; }
-.linktree-services-disclosure[open] summary > i { transform: rotate(180deg); }
+.services-summary-icon { flex: 0 0 42px; width: 42px; height: 42px; display: grid; place-items: center; border-radius: 12px; background: rgba(239,35,60,.13); color: #ff5268; font-size: 1.2rem; }
+.services-summary-copy { display: flex; flex: 1; flex-direction: column; gap: 4px; min-width: 0; }
+.services-summary-copy strong { font-family: 'Space Grotesk',sans-serif; font-size: .96rem; letter-spacing: -.02em; }
+.services-summary-copy small { color: #9699a2; font-size: .72rem; }
+.services-summary-action { display: inline-flex; align-items: center; gap: 8px; color: #f0a0a9; font-size: .68rem; font-weight: 800; white-space: nowrap; text-transform: uppercase; letter-spacing: .04em; }
+.services-summary-action i { color: #f4f4f1; font-style: normal; font-size: 1rem; transition: transform .2s ease; }
+.linktree-services-disclosure[open] .services-summary-action i { transform: rotate(180deg); }
 .linktree-services-disclosure[open] summary { border-bottom: 1px solid #292c33; }
+.linktree-course-link { width: min(100%, 480px); min-height: 82px; display: flex; align-items: center; gap: 14px; margin: 14px auto 0; padding: 14px 17px; border: 1px solid rgba(239,35,60,.38); border-radius: 14px; background: linear-gradient(110deg, rgba(239,35,60,.16), rgba(24,26,32,.96) 58%); color: #f5f5f2; box-shadow: 0 10px 26px rgba(0,0,0,.18); transition: border-color .2s ease, transform .2s ease, background .2s ease; }
+.linktree-course-link:hover, .linktree-course-link:focus-visible { border-color: #ef233c; transform: translateY(-2px); background: linear-gradient(110deg, rgba(239,35,60,.23), rgba(28,30,37,.98) 58%); }
+.course-link-icon { flex: 0 0 42px; width: 42px; height: 42px; display: grid; place-items: center; border-radius: 12px; background: #ef233c; color: #fff; font-size: .9rem; }
+.course-link-copy { display: flex; flex: 1; flex-direction: column; gap: 3px; min-width: 0; }
+.course-link-copy small { color: #ff6879; font-size: .62rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.course-link-copy strong { font-family: 'Space Grotesk',sans-serif; font-size: .9rem; line-height: 1.2; }
+.course-link-copy em { color: #a9abb3; font-size: .72rem; font-style: normal; line-height: 1.35; }
+.course-link-arrow { color: #ff6879; font-size: 1.15rem; }
 .linktree-services { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; }
 .linktree-service { display: grid; grid-template-columns: 28px 1fr 20px; align-items: center; gap: 9px; padding: 14px 13px; border: 1px solid #292c33; border-radius: 12px; background: rgba(20,22,27,.78); color: #e7e8e6; transition: border-color .2s, transform .2s, background .2s; }
 .linktree-service:hover, .linktree-service:focus-visible { border-color: #ef233c; transform: translateY(-2px); background: #1b1d23; }
