@@ -8,38 +8,17 @@
 .linktree-page * { box-sizing: border-box; }
 .linktree-shell { width: min(calc(100% - 32px), 680px); margin: 0 auto; padding: 0 0 28px; }
 .linktree-profile {
-  position: relative;
-  isolation: isolate;
-  min-height: 350px;
-  margin: 0 calc((680px - min(100vw - 32px, 680px))/ -2) 0;
-  padding: 58px 22px 44px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   align-items: center;
   text-align: center;
-  overflow: hidden;
-  background: #111;
+  padding: 42px 18px 22px;
+  margin: 0 auto;
 }
-.linktree-profile::before {
-  content: '';
-  position: absolute;
-  z-index: -2;
-  inset: 0;
-  background: url('/media/entrada/envelopamento-do-teto.jpeg') center 48% / cover no-repeat;
-  transform: scale(1.025);
-}
-.linktree-profile::after {
-  content: '';
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(5,6,8,.24) 0%, rgba(5,6,8,.45) 35%, rgba(5,6,8,.94) 100%);
-}
-.linktree-logo { width: 174px; height: auto; max-height: 58px; object-fit: contain; margin: 0 auto 22px; filter: drop-shadow(0 3px 16px rgba(0,0,0,.65)); }
+.linktree-logo { width: 174px; height: auto; max-height: 58px; object-fit: contain; margin: 0 auto 22px; }
 .linktree-location { margin: 0 0 11px; color: #ff6879; font-size: .66rem; letter-spacing: .18em; text-transform: uppercase; font-weight: 800; }
-.linktree-profile h1 { max-width: 540px; margin: 0 auto 10px; font-size: clamp(2rem, 7vw, 3.15rem); line-height: .98; letter-spacing: -.06em; text-shadow: 0 3px 20px rgba(0,0,0,.6); }
-.linktree-intro { max-width: 420px; margin: 0 auto; color: rgba(245,245,242,.78); font-size: .86rem; text-shadow: 0 2px 12px rgba(0,0,0,.7); }
+.linktree-profile h1 { max-width: 540px; margin: 0 auto 10px; font-size: clamp(2rem, 7vw, 3.15rem); line-height: .98; letter-spacing: -.06em; }
+.linktree-intro { max-width: 420px; margin: 0 auto; color: #a9abb3; font-size: .86rem; }
 .linktree-actions { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px 12px; width: min(100%, 570px); margin: -2px auto 0; padding: 27px 8px 14px; }
 .linktree-quick-link { display: flex; flex-direction: column; align-items: center; gap: 9px; min-width: 0; color: #f4f4f1; text-decoration: none; font-size: .65rem; font-weight: 800; letter-spacing: .045em; text-transform: uppercase; transition: transform .22s ease, opacity .22s ease; }
 .linktree-quick-link:hover, .linktree-quick-link:focus-visible { transform: translateY(-4px); opacity: .9; }
@@ -49,8 +28,32 @@
 .quick-whatsapp .quick-icon img, .quick-instagram .quick-icon img { filter: brightness(0) invert(1); }
 .quick-location .quick-icon, .quick-google .quick-icon { background: #fff; border: 0; }
 .quick-instagram .quick-icon { background: radial-gradient(circle at 30% 110%, #ffd776 0 20%, #f56040 42%, #c13584 68%, #833ab4 100%); border: 0; color: #fff; }
-.linktree-site-link { display: flex; justify-content: center; align-items: center; gap: 10px; margin: 4px auto 0; color: #c5c6ca; font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
-.linktree-site-link span { color: #ef233c; font-size: 1rem; }
+.linktree-site-link {
+  width: min(100%, 340px);
+  min-height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin: 10px auto 0;
+  padding: 13px 20px;
+  border: 1px solid rgba(239,35,60,.7);
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ef233c, #c91832);
+  color: #fff;
+  box-shadow: 0 9px 24px rgba(239,35,60,.18), inset 0 1px 0 rgba(255,255,255,.15);
+  font-size: .74rem;
+  font-weight: 800;
+  letter-spacing: .075em;
+  text-transform: uppercase;
+  transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+}
+.linktree-site-link:hover, .linktree-site-link:focus-visible {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+  box-shadow: 0 12px 28px rgba(239,35,60,.26);
+}
+.linktree-site-link span { color: #fff; font-size: 1.1rem; }
 .linktree-section { margin-top: 48px; }
 .linktree-section-heading { margin-bottom: 18px; }
 .linktree-section-heading > span { color: #ef233c; font-size: .65rem; letter-spacing: .16em; text-transform: uppercase; font-weight: 800; }
@@ -100,7 +103,7 @@
 .linktree-footer { display: flex; justify-content: space-between; gap: 12px; border-top: 1px solid #282b32; padding-top: 18px; color: #777b83; font-size: .63rem; letter-spacing: .08em; text-transform: uppercase; }
 @media (max-width: 560px) {
   .linktree-shell { width: min(calc(100% - 24px), 680px); }
-  .linktree-profile { min-height: 330px; margin-inline: -12px; padding: 48px 18px 38px; }
+  .linktree-profile { padding: 34px 12px 18px; }
   .linktree-logo { width: 154px; }
   .linktree-actions { gap: 16px 6px; padding: 23px 0 12px; }
   .quick-icon { width: 56px; height: 56px; border-radius: 17px; }
