@@ -139,6 +139,24 @@ const schema = { '@context':'https://schema.org', '@type':'AutomotiveBusiness', 
       audio.volume = 0;
       startPlayback();
 
+      // Ao sair da aba ou minimizar o navegador, pausa sem retomar automaticamente.
+      const pauseWhenPageIsHidden = () => {
+        if (!document.hidden) return;
+        window.clearInterval(fadeTimer);
+        fadeTimer = null;
+        audio.pause();
+        audio.volume = targetVolume;
+        setState(false);
+      };
+      document.addEventListener('visibilitychange', pauseWhenPageIsHidden);
+      window.addEventListener('pagehide', () => {
+        window.clearInterval(fadeTimer);
+        fadeTimer = null;
+        audio.pause();
+        audio.volume = targetVolume;
+        setState(false);
+      });
+
       // Se o navegador bloquear autoplay audível, inicia na primeira interação com a página.
       const unlockOnInteraction = (event) => {
         if (event.target === button || button.contains(event.target)) return;
