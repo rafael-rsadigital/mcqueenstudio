@@ -1,5 +1,5 @@
 /* Entrada progressiva por rolagem, sem alterar os textos do site. */
-.reveal-on-scroll { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
+.reveal-on-scroll { opacity: 0; transform: translateY(12px); transition: opacity .35s ease, transform .35s ease; }
 .reveal-on-scroll.is-revealed { opacity: 1; transform: none; }
 
 /* Escala desktop mais contida: preserva a identidade e reduz o aspecto grosseiro. */
