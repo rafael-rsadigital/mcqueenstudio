@@ -129,7 +129,7 @@ const schema = { '@context':'https://schema.org', '@type':'AutomotiveBusiness', 
           audio.volume = 0;
           await audio.play();
           setState(true);
-          fadeTo(targetVolume, 2600);
+          fadeTo(targetVolume, 500);
         } catch (error) {
           setState(false);
         }
