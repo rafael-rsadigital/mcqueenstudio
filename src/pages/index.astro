@@ -61,7 +61,7 @@ const schema = { '@context':'https://schema.org', '@type':'AutomotiveBusiness', 
       const video = document.querySelector('.hero-mobile-video');
       if (!video) return;
       let frameReady = false;
-      let playTimer = null;
+      let coverSeekStarted = false;
       const tryPlay = () => {
         if (!window.matchMedia('(max-width: 680px)').matches || document.hidden || !frameReady) return;
         video.muted = true;
@@ -70,7 +70,8 @@ const schema = { '@context':'https://schema.org', '@type':'AutomotiveBusiness', 
         if (attempt && typeof attempt.catch === 'function') attempt.catch(() => video.classList.add('video-fallback'));
       };
       const seekToCoverFrame = () => {
-        if (frameReady || !Number.isFinite(video.duration) || video.duration < 1) return;
+        if (frameReady || coverSeekStarted || !Number.isFinite(video.duration) || video.duration < 1) return;
+        coverSeekStarted = true;
         video.pause();
         video.currentTime = 1;
       };
@@ -80,7 +81,7 @@ const schema = { '@context':'https://schema.org', '@type':'AutomotiveBusiness', 
         frameReady = true;
         video.classList.add('video-frame-ready');
         // Mostra brevemente o frame do próprio vídeo no segundo 1 antes de iniciar a reprodução.
-        playTimer = window.setTimeout(tryPlay, 350);
+        window.setTimeout(tryPlay, 350);
       });
       video.addEventListener('canplay', () => { if (!frameReady) seekToCoverFrame(); });
       video.addEventListener('error', () => video.classList.add('video-fallback'), { once: true });
