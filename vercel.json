@@ -13,6 +13,16 @@
       "permanent": true
     },
     {
+      "source": "/links",
+      "destination": "/bio/",
+      "permanent": true
+    },
+    {
+      "source": "/links/",
+      "destination": "/bio/",
+      "permanent": true
+    },
+    {
       "source": "/som-e-acessorios-automotivos",
       "destination": "/servicos/",
       "permanent": true
