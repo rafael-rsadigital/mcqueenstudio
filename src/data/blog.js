@@ -86,8 +86,8 @@ export const blogPosts = [
     categorySlug: 'estetica',
     readTime: '5 min de leitura',
     date: '2026-11-07',
-    image: '/media/entrada/9F09F1C8-414F-4A6D-95F5-EAF142B64706.jpeg',
-    imageAlt: 'Registro de veículo em projeto de estética automotiva',
+    image: 'https://images.pexels.com/photos/5233279/pexels-photo-5233279.jpeg?auto=compress&cs=tinysrgb&w=1600',
+    imageAlt: 'Profissional realizando polimento técnico na pintura de um automóvel branco',
     intro: 'Perda de brilho, marcas circulares e pequenos riscos podem deixar a pintura com aparência opaca. O polimento automotivo pode melhorar alguns desses sinais, mas o procedimento correto começa sempre pelo diagnóstico da superfície.',
     sections: [
       { heading: 'O que o polimento automotivo faz?', paragraphs: [
