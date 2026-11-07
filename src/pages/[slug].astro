@@ -78,8 +78,10 @@ const schema = {
   url:pageUrl,
   provider:{
     '@type':'AutomotiveBusiness',
+    '@id': 'https://www.mcqueenstudio.com.br/#business',
     name:company.name,
     url:'https://www.mcqueenstudio.com.br/',
+    sameAs: company.sameAs,
     address:{
       '@type':'PostalAddress',
       streetAddress:'Rua Dr. Mario Sampaio Martins, 652',
