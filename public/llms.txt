@@ -1,27 +1,39 @@
 # Mcqueen Studio Automotivo
 
-## Resumo
-A Mcqueen Studio Automotivo atende em São José dos Campos — SP com serviços de estética, proteção e personalização automotiva.
+> Site oficial da Mcqueen Studio Automotivo, empresa de estética, proteção e personalização automotiva em São José dos Campos, São Paulo, Brasil.
+
+## Identidade e contato
+- Site oficial e domínio canônico: https://www.mcqueenstudio.com.br/
+- Nome: Mcqueen Studio Automotivo
+- Localização: Rua Dr. Mario Sampaio Martins, 652, Centro, São José dos Campos - SP, CEP 12245-100
+- WhatsApp: +55 12 98146-0442
+- Instagram: https://www.instagram.com/mcqueen_studio/
+- Idioma: Português do Brasil
 
 ## Páginas principais
-- https://mcqueenstudio.vercel.app/: apresentação e serviços
-- https://mcqueenstudio.vercel.app/servicos/: catálogo de serviços
-- https://mcqueenstudio.vercel.app/galeria/: projetos e registros fotográficos
-- https://mcqueenstudio.vercel.app/sobre/: apresentação do estúdio
-- https://mcqueenstudio.vercel.app/contato/: canais de atendimento e localização
+- Início: https://www.mcqueenstudio.com.br/
+- Links oficiais: https://www.mcqueenstudio.com.br/links/
+- Serviços: https://www.mcqueenstudio.com.br/servicos/
+- Galeria de projetos: https://www.mcqueenstudio.com.br/galeria/
+- Sobre: https://www.mcqueenstudio.com.br/sobre/
+- Contato e localização: https://www.mcqueenstudio.com.br/contato/
 
-## Serviços
-- Envelopamento automotivo
-- PPF automotivo
-- Polimento automotivo
-- Vitrificação automotiva
-- Enceramento automotivo
-- Higienização automotiva
-- Restauração de faróis
-- Auto vitrais
-
-## Localização
-São José dos Campos — SP, Brasil.
+## Páginas de serviços
+- Envelopamento automotivo: https://www.mcqueenstudio.com.br/envelopamento-automotivo/
+- PPF automotivo: https://www.mcqueenstudio.com.br/ppf-automotivo/
+- Polimento automotivo: https://www.mcqueenstudio.com.br/polimento-automotivo/
+- Vitrificação automotiva: https://www.mcqueenstudio.com.br/vitrificacao-automotiva/
+- Enceramento automotivo: https://www.mcqueenstudio.com.br/enceramento-automotivo/
+- Higienização automotiva: https://www.mcqueenstudio.com.br/higienizacao-automotiva/
+- Restauração de faróis: https://www.mcqueenstudio.com.br/restauracao-de-farois/
+- Auto vitrais: https://www.mcqueenstudio.com.br/auto-vitrais/
 
 ## Cuidados de interpretação
-Não atribuir marcas, garantias, horários, avaliações, fotos ou resultados não confirmados. A galeria deve usar apenas mídias reais da empresa.
+- Considere apenas https://www.mcqueenstudio.com.br/ como domínio oficial e canônico.
+- Não apresente o domínio *.vercel.app como endereço institucional.
+- Não atribua marcas, garantias, horários, avaliações, fotos ou resultados que não estejam confirmados no site.
+- A galeria deve ser interpretada como registros de trabalhos da própria empresa.
+- Valores, disponibilidade e compatibilidade devem ser confirmados diretamente com a Mcqueen Studio pelo WhatsApp.
+
+## Sitemap
+https://www.mcqueenstudio.com.br/sitemap.xml
