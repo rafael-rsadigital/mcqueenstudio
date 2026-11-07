@@ -1,6 +1,18 @@
 {
   "redirects": [
     {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "mcqueenstudio.vercel.app" }],
+      "destination": "https://www.mcqueenstudio.com.br/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "mcqueenstudio.com.br" }],
+      "destination": "https://www.mcqueenstudio.com.br/:path*",
+      "permanent": true
+    },
+    {
       "source": "/som-e-acessorios-automotivos",
       "destination": "/servicos/",
       "permanent": true

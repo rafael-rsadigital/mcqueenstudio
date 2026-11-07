@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://mcqueenstudio.vercel.app/sitemap.xml
+
+Sitemap: https://www.mcqueenstudio.com.br/sitemap.xml

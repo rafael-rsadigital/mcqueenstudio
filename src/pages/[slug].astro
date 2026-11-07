@@ -68,7 +68,7 @@ const serviceBackgrounds = {
   'auto-vitrais': '/media/entrada/Sem%20t%C3%ADtulo23.jpg',
 };
 const serviceBackground = serviceBackgrounds[service.slug] || '/media/entrada/moto02.jpeg';
-const pageUrl = new URL(`/${service.slug}/`, Astro.site || 'https://mcqueenstudio.vercel.app').toString();
+const pageUrl = new URL(`/${service.slug}/`, Astro.site || 'https://www.mcqueenstudio.com.br').toString();
 const schema = {
   '@context':'https://schema.org',
   '@type':'Service',
@@ -79,7 +79,7 @@ const schema = {
   provider:{
     '@type':'AutomotiveBusiness',
     name:company.name,
-    url:'https://mcqueenstudio.vercel.app/',
+    url:'https://www.mcqueenstudio.com.br/',
     address:{
       '@type':'PostalAddress',
       streetAddress:'Rua Dr. Mario Sampaio Martins, 652',

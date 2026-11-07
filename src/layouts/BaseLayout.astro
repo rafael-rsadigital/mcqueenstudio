@@ -5,7 +5,7 @@ import { company } from '../data/site.js';
 import '../styles/global.css';
 import '../styles/overrides.css';
 const { title, description, path = '/', image = '/og-image.svg', schema = null } = Astro.props;
-const canonical = new URL(path, Astro.site || 'https://mcqueenstudio.vercel.app').toString();
+const canonical = new URL(path, Astro.site || 'https://www.mcqueenstudio.com.br').toString();
 const pageTitle = title?.includes('Mcqueen') ? title : `${title} | ${company.shortName}`;
 ---
 <!doctype html>
@@ -23,8 +23,11 @@ const pageTitle = title?.includes('Mcqueen') ? title : `${title} | ${company.sho
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={new URL(image, Astro.site || 'https://mcqueenstudio.vercel.app').toString()} />
+    <meta property="og:image" content={new URL(image, Astro.site || 'https://www.mcqueenstudio.com.br').toString()} />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(image, Astro.site || 'https://www.mcqueenstudio.com.br').toString()} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />

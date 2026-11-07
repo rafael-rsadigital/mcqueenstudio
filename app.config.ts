@@ -1,1 +1,1 @@
-export default { logoUrl: "https://mcqueenstudio.com.br/favicon.svg" };
+export default { logoUrl: "https://www.mcqueenstudio.com.br/favicon.svg" };
