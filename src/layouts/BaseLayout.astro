@@ -5,6 +5,7 @@ import { company } from '../data/site.js';
 import '../styles/global.css';
 import '../styles/overrides.css';
 const { title, description, path = '/', image = '/og-image.svg', schema = null, breadcrumbs = [] } = Astro.props;
+const canonical = new URL(path, Astro.site || 'https://www.mcqueenstudio.com.br').toString();
 const breadcrumbSchema = breadcrumbs.length ? {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
@@ -18,7 +19,6 @@ const breadcrumbSchema = breadcrumbs.length ? {
     }))
   ]
 } : null;
-const canonical = new URL(path, Astro.site || 'https://www.mcqueenstudio.com.br').toString();
 const pageTitle = title?.includes('Mcqueen') ? title : `${title} | ${company.shortName}`;
 ---
 <!doctype html>
