@@ -4,7 +4,20 @@ import Footer from '../components/Footer.astro';
 import { company } from '../data/site.js';
 import '../styles/global.css';
 import '../styles/overrides.css';
-const { title, description, path = '/', image = '/og-image.svg', schema = null } = Astro.props;
+const { title, description, path = '/', image = '/og-image.svg', schema = null, breadcrumbs = [] } = Astro.props;
+const breadcrumbSchema = breadcrumbs.length ? {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Início', item: 'https://www.mcqueenstudio.com.br/' },
+    ...breadcrumbs.map((label, index) => ({
+      '@type': 'ListItem',
+      position: index + 2,
+      name: label,
+      item: index === breadcrumbs.length - 1 ? canonical : undefined
+    }))
+  ]
+} : null;
 const canonical = new URL(path, Astro.site || 'https://www.mcqueenstudio.com.br').toString();
 const pageTitle = title?.includes('Mcqueen') ? title : `${title} | ${company.shortName}`;
 ---
@@ -16,6 +29,8 @@ const pageTitle = title?.includes('Mcqueen') ? title : `${title} | ${company.sho
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#070708" />
     <link rel="canonical" href={canonical} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="pt_BR" />
@@ -34,10 +49,17 @@ const pageTitle = title?.includes('Mcqueen') ? title : `${title} | ${company.sho
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
     {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
+    {breadcrumbSchema && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />}
   </head>
   <body>
     <Header />
-    <main><slot /></main>
+    <main>
+      {breadcrumbs.length > 0 && <nav class="breadcrumbs wrap" aria-label="Você está aqui">
+        <a href="/">Início</a>
+        {breadcrumbs.map((label, index) => <><span aria-hidden="true">/</span>{index === breadcrumbs.length - 1 ? <span aria-current="page">{label}</span> : <span>{label}</span>}</>)}
+      </nav>}
+      <slot />
+    </main>
     <Footer />
     <script>
       const header = document.querySelector('[data-header]');
