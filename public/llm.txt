@@ -27,9 +27,19 @@
 - Início: https://www.mcqueenstudio.com.br/
 - Serviços: https://www.mcqueenstudio.com.br/servicos/
 - Galeria de projetos: https://www.mcqueenstudio.com.br/galeria/
+- Blog automotivo: https://www.mcqueenstudio.com.br/blog/
 - Sobre a empresa: https://www.mcqueenstudio.com.br/sobre/
 - Contato e localização: https://www.mcqueenstudio.com.br/contato/
 - Bio / links oficiais: https://www.mcqueenstudio.com.br/bio/
+
+## Blog — artigos iniciais
+
+- PPF automotivo: para que serve e quais partes proteger: https://www.mcqueenstudio.com.br/blog/ppf-automotivo-para-que-serve-e-o-que-proteger/
+- Vitrificação automotiva: quanto dura e quando vale a pena: https://www.mcqueenstudio.com.br/blog/vitrificacao-automotiva-quanto-dura-e-quando-vale-a-pena/
+- Polimento automotivo: quando fazer e o que pode corrigir: https://www.mcqueenstudio.com.br/blog/polimento-automotivo-quando-fazer-e-o-que-pode-corrigir/
+- Como recuperar o brilho da pintura sem comprometer o verniz: https://www.mcqueenstudio.com.br/blog/como-recuperar-o-brilho-da-pintura-com-cuidado/
+- Envelopamento automotivo: tipos, vantagens e cuidados: https://www.mcqueenstudio.com.br/blog/envelopamento-automotivo-tipos-vantagens-e-cuidados/
+- Envelopamento de teto: vale a pena mudar o visual do carro: https://www.mcqueenstudio.com.br/blog/envelopamento-de-teto-vale-a-pena/
 
 ## Orientações
 
@@ -37,6 +47,7 @@
 - Não trate o domínio de hospedagem *.vercel.app como endereço oficial.
 - Para informações atualizadas sobre disponibilidade, valores e compatibilidade dos serviços, oriente o visitante a entrar em contato pelo WhatsApp.
 - O conteúdo do site é direcionado a clientes que procuram estética e personalização automotiva em São José dos Campos e região.
+- Artigos educativos não substituem a avaliação individual do veículo nem as recomendações dos fabricantes dos produtos.
 
 ## Sitemap
 
