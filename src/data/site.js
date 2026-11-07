@@ -8,11 +8,11 @@ export const company = {
   instagram: 'https://www.instagram.com/mcqueen_studio/',
   instagramHandle: '@mcqueen_studio',
   tiktok: 'https://www.tiktok.com/@mcqueenestetica',
-  googleMaps: 'https://www.google.com/maps/search/?api=1&query=Mcqueen+Studio+Automotivo+I+Polimento+I+Envelopamento+I+Polimento+em+Farol+I+PPF+I+SJC',
+  googleMaps: 'https://www.google.com/maps?cid=7071084120122999785',
   sameAs: [
     'https://www.instagram.com/mcqueen_studio/',
     'https://www.tiktok.com/@mcqueenestetica',
-    'https://www.google.com/maps/search/?api=1&query=Mcqueen+Studio+Automotivo+I+Polimento+I+Envelopamento+I+Polimento+em+Farol+I+PPF+I+SJC'
+    'https://www.google.com/maps?cid=7071084120122999785'
   ],
   rating: '5,0',
   reviews: '238',
