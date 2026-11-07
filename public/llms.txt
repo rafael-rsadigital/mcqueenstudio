@@ -16,7 +16,7 @@
 
 ## Páginas principais
 - Início: https://www.mcqueenstudio.com.br/
-- Links oficiais: https://www.mcqueenstudio.com.br/links/
+- Bio / links oficiais: https://www.mcqueenstudio.com.br/bio/
 - Serviços: https://www.mcqueenstudio.com.br/servicos/
 - Galeria de projetos: https://www.mcqueenstudio.com.br/galeria/
 - Sobre: https://www.mcqueenstudio.com.br/sobre/
